@@ -1,0 +1,304 @@
+/* Temel stil ayarları */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Dış konteyner */
+.outer-container {
+    max-width: 1200px;
+    margin: 0 auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Ana konteyner */
+.container {
+    max-width: 800px;
+    max-height: 94vh;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Oyuncu profili */
+.player-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* Oyuncu fotoğrafı */
+.player-photo img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8%;
+    margin-right: 20px;
+    border: 3px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Oyuncu bilgileri */
+.player-info {
+    font-size: 18px;
+}
+
+.player-info .player-name {
+    margin: 0;
+    font-size: 24px;
+}
+
+.player-details {
+    margin: 5px 0;
+}
+
+/* Oyuncu istatistikleri */
+.player-stats {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.player-stats h2 {
+    margin-top: 0;
+}
+
+.team-info{
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    margin-bottom: 20px;
+}
+/* Takım bilgileri */
+.team-info img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 14%;
+}
+.team-info p{
+    margin: 0;
+    text-align: left;
+}
+
+.team-name{
+    font-weight: 600;
+    font-size: 19px;
+}
+.league-info{
+    color: #474747;
+}
+.season{
+    color: #666666;
+}
+/* İstatistik sütunları */
+.stats-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stats-column {
+    width: 49%;
+}
+
+/* İstatistik öğeleri */
+.stats-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.stats-item :last-child{
+    margin-bottom: 0px;
+}
+
+.stats-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    cursor: help;
+    position: relative;
+    display: inline-block;
+}
+
+.stats-item h3 i {
+    margin-left: 5px;
+    font-size: 15px;
+    color: #888;
+    cursor: help;
+}
+
+.stats-item h3 i:hover + .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    filter: blur(0px);
+    transition: opacity 0.15s ease-in-out, filter 0.125s ease-in-out;
+}
+
+.stats-item .tooltiptext {
+    visibility: hidden;
+    font-size: 12.5px;
+    width: 200px;
+    background-color: #00000091;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -50px;
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 0.15s ease-in-out, filter 0.125s ease-in-out;
+}
+
+.stats-item p {
+    margin: 5px 0;
+}
+
+/* Oyuncu ve haber listeleri */
+.news-list {
+    flex: 1;
+    background-color: #fff;
+    /*padding: 20px;*/
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: scroll;
+}
+
+
+/* Haber başlığı */
+.news-list h2 {
+    margin-top: 0;
+    margin-left: 20px;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 1;
+}
+
+/* Haber öğesi */
+.news-item {
+    display: flex;
+    border-radius: 8px;
+    /*
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    */
+    border: 2px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.news-item:last-child {
+    margin-bottom: 20px;
+}
+
+/* Haber resmi */
+.news-thumbnail {
+    flex: 0;
+    min-height: 100%;
+    height: 100%;
+    min-width: auto;
+    width: 250px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.thumbnail-image {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
+
+.thumbnail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+/* Haber içeriği */
+.news-content {
+    padding: 20px;
+    flex: 1;
+}
+
+.news-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.news-content p {
+    margin: 5px 0 10px 0;
+}
+
+.read-more {
+    color: rgba(0, 0, 0, 0.555);
+    text-decoration: none;
+}
+
+/* Liste elemanları arasına boşluk ekle */
+.news-and-player-summary{
+    height: 100%;
+    margin: 20px 0 0 20px;
+    width: 59%;
+}
+.news-list {
+    padding-top: 20px;
+   
+    max-height: 67vh;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.container{
+    width: 39%;
+    overflow-y: scroll
+}
+
+.player-summary{
+    height: 25vh;
+    background-color: #fff;
+    width:100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    max-width: 1200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+.player-summary-items{
+    
+    justify-content: space-between;
+    max-height: 22vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.player-summary-text{
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.player-summary-paragraph{
+
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+   /* margin: 10% 0 10% 0; */
+}
+.player-summary-paragraph-div{
+    overflow-y: scroll;
+    height: 18vh;
+}

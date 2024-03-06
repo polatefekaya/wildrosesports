@@ -1,0 +1,16 @@
+{
+    "Id" : "386",
+    "FirstName": "Vincent",
+    "LastName": "Aboubakar",
+    "Age": 32,
+    "Nationality": "Cameroon",
+    "Height": "184 cm",
+    "Weight": "75 kg",
+    "Injured": false,
+    "PhotoUrl": "https://media.api-sports.io/football/players/386.png",
+    "BirthDate": "1992-01-22",
+    "BirthPlace": "Some Place",
+    "BirthCountry": "Cameroon",
+    "LastModified": "1708092008000",
+    "Created": "1708092008000"
+}

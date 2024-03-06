@@ -1,0 +1,19 @@
+﻿@model SportsApp.Core.Domain.Entities.TeamStandings
+@using SportsApp.Core.Domain.Entities;
+<html>
+    <head>
+        <link href="~/StyleSheet33.css" rel="stylesheet"/>
+    </head>
+    <body class="body">
+    <h1>Football</h1>
+        <div class="container">
+            <div class="box float-left">
+            @{
+                await Html.RenderPartialAsync("~/Views/Shared/_LeagueStandingsPartialView.cshtml", Model);
+            }
+        </div> 
+    </div>
+    </body>
+</html>
+
+

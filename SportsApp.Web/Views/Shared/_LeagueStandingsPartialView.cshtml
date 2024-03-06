@@ -1,0 +1,28 @@
+﻿@model SportsApp.Core.Domain.Entities.TeamStandings
+
+<table class="table white-back">
+    <tbody>
+        @{
+            int season = Model.Response[0].League.Season;
+            string seasonString = season.ToString() + " - " + (season + 1);
+
+
+            <h2>@Model.Response[0].League.Country</h2>
+            <h2>@seasonString</h2>
+            <h3>@Model.Response[0].League.Name</h3>
+            //<h3>@Model.Response[0].League.Id</h3>
+            for (int i = 0; i < Model.Response[0].League.Standings[0].Length; i++) {
+                int j = i + 1;
+                TeamStandings.StandingData? standing = Model.Response[0].League.Standings[0][i];
+                <tr>
+                    <th>@j</th>
+                    <td><a href="/football/players/@standing.Team.Id">@standing.Team.Name</a></td>
+                    <th>Points</th>
+                    <td>@standing.Points</td>
+                    <th>Goal Difference</th>
+                    <td>@standing.GoalsDiff</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

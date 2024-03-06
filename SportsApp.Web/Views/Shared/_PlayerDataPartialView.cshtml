@@ -1,0 +1,19 @@
+﻿@{
+    Players Model = ViewBag.Players;
+    for (int i = 0; i < Model.response.Length; i++) {
+        int j = i + 1;
+        Players.Player? playerData = Model.response[i].player;
+        <tr>
+            <th>@j</th>
+            <td><a href="/@playerData.id">@playerData.name</a></td>
+            <th>Age</th>
+            <td>@playerData.age</td>
+            <th>Nationality</th>
+            <td>@playerData.nationality</td>
+            <th>Height</th>
+            <td>@playerData.height</td>
+            <th>Weight</th>
+            <td>@playerData.weight</td>
+        </tr>
+    }
+}

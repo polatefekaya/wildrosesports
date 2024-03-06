@@ -1,0 +1,95 @@
+﻿@using SportsApp.Core.Domain.Entities
+@{
+    Players Model = ViewBag.Players;
+    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="~/TeamStyle.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="team-summary">
+            <div class="team-image">
+                <img src=@Model.response[0].statistics[0].team.logo alt="Team Logo" class="team-logo">
+            </div>
+            <div class="team-info">
+                <h1>@Model.response[0].statistics[0].team.name</h1>
+                <p>Founded: 1900</p>
+                <p>Stadium: TT Arena</p>
+                <p>Country: @Model.response[0].statistics[0].league.country</p>
+                <p>Captain: Jane Smith</p>
+                <p>League: @Model.response[0].statistics[0].league.name</p>
+            </div>
+
+            <div class="team-divider"></div>
+            <div class="team-descriptiron">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris iaculis felis ante, sed tincidunt dolor aliquet sed. In elementum nec eros et fermentum. Integer gravida quam et felis euismod dictum. Cras sollicitudin dictum commodo. Duis accumsan lacus nec nibh maximus iaculis. Quisque tellus urna,</p>
+            </div>
+            <!-- Diğer takım bilgilerini buraya ekleyebilirsiniz -->
+        </div>
+        <div class="content">
+            <div class="player-list">
+                <h2>Players</h2>
+                @{
+                    for (int i = 0; i < Model.response.Length; i++) {
+                        Players.Player? player = Model.response[i].player;
+                        <div class="player-item">
+                            <div class="player-box">
+                                <img src=@player?.photo alt="Player">
+                                <div class="player-info">
+                                    <h3>@player?.name</h3>
+                                    <p>@Model?.response?[i].statistics?[0].games?.position</p>
+                                    <p>@player?.age</p>
+                                    <!-- Diğer oyuncu bilgileri buraya ekleyebilirsiniz -->
+                                </div>
+                            </div>
+                            <div class="player-details">
+                            </div>
+                            <div class="read-more-container">
+                                <a href="/football/player/@player?.id" class="read-more fas fa-info-circle"></a>
+                            </div>
+                        </div>
+                    }
+                }
+                
+
+                <!-- Diğer oyuncuları buraya ekleyebilirsiniz -->
+            </div>
+            <div class="news-list">
+                <h2>News</h2>
+                @{
+                    News news = ViewBag.News;
+
+                    if (news.articles == null || news.articles.Length <= 0) {
+                        <h3>Can't Find Any News</h3>
+                        return;
+                    }
+                    for (int i = 0; i < news.articles.Length; i++) {
+                        News.Article article = news.articles[i];
+
+                        <div class="news-item">
+                            <div class="news-thumbnail">
+                                <div class="thumbnail-image">
+                                    <img src=@article.urlToImage alt="News Thumbnail">
+                                </div>
+                            </div>
+                            <div class="news-content">
+                                <h3>@article.title</h3>
+                                <p>@article.description</p>
+                                <a href=@article.url target="_blank" class="read-more">Read more</a>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

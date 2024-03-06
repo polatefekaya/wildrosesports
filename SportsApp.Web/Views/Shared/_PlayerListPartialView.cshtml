@@ -1,0 +1,21 @@
+﻿
+
+<table class="table w-100">
+    <tbody>
+        @{
+            Players Model = ViewBag.Players;
+            int? season = Model.parameters.season;
+            string seasonString = String.Empty;
+            if (season == null) {
+                throw new ArgumentNullException(nameof(season));
+            }
+            seasonString = season.ToString() + " - " + (season + 1);
+
+            //<h2>@Model.response[0].League.Country</h2>
+            <h2>@seasonString</h2>
+            //<h3>@Model.response[0].League.Name</h3>
+
+            await Html.RenderPartialAsync("~/Views/Shared/_PlayerDataPartialView.cshtml", Model);
+        }
+    </tbody>
+</table>

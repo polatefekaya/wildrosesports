@@ -1,0 +1,256 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-summary {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.team-summary h1 {
+    margin-top: 0;
+}
+
+.team-summary p {
+    margin: 5px 0;
+}
+
+.team-logo {
+    width: 100px; /* Logonun genişliğini ayarla */
+    height: auto; /* Otomatik yükseklik */
+    float: left; /* Logoyu sola yasla */
+    margin-right: 20px; /* Yazıdan önce boşluk bırak */
+}
+
+.team-summary {
+    display: flex;
+    align-items: center;
+}
+
+.team-image {
+    margin-right: 20px;
+}
+
+.team-image img {
+    width: 100px;
+    height: auto;
+}
+
+.team-divider {
+    float: right;
+    height: 100px;
+    border-left: 1px solid #ccc;
+    margin: 0 20px;
+}
+
+.team-description {
+    float: right;
+    overflow: auto;
+    width: 10%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.team-description p {
+    overflow-wrap: break-word; /* Uzun kelimeleri kır */
+    word-break: break-all; /* Kelimeleri istenildiği gibi kır */
+}
+
+.team-info {
+    flex:1;
+    overflow:visible; /* Yazılar logonun sağında görünsün */
+    min-width: max-content;
+    margin-right: 20px;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    gap: 20px; /* Öğeler arasına boşluk eklendi */
+}
+
+.player-list,
+.news-list {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Sayfanın en altına kadar uzat */
+    height: 100%;
+}
+
+.news-list {
+    max-height: 76vh;
+    /* Kaydırma özelliği sadece news-list için */
+    overflow-y:scroll;
+}
+
+.player-list h2,
+.news-list h2 {
+    margin-top: 0;
+}
+
+.news-list h2 {
+    /* Başlık sabit kalsın */
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.news-item {
+    display: flex;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.news-item:last-child {
+    margin-bottom: 0px;
+}
+
+.news-thumbnail {
+    flex: 0;
+    min-height: 100%;
+    height: 100%;
+    min-width:auto; /* Thumbnail yüksekliği */
+    width: 250px; /* Thumbnail genişliği */
+    border-radius: 8px;
+    
+    overflow:hidden; /* Resmi kırp */
+}
+
+.thumbnail-image{
+   
+    height: 100%;
+    width: 100%;
+    object-fit:fill;
+}
+
+.thumbnail-image img {
+    width: 100%; /* Resmi tamamen genişliğe sığdır */
+    height: 100%; /* Resmi tamamen yüksekliğe sığdır */
+    object-fit:fill; /* Resmi kapla */
+}
+
+.news-content {
+    padding: 20px;
+    flex: 1; /* İçerik bölümünü genişlet */
+}
+
+.news-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px; /* Başlık alt boşluğu */
+}
+
+.news-content p {
+    margin: 5px 0 10px 0;
+}
+
+.read-more {
+    color: rgba(0, 0, 0, 0.555);
+    text-decoration: none;
+    
+}
+
+/* Liste elemanları arasına boşluk ekle */
+.news-list {
+    /*border-top: 2px solid #ccc;*/
+    padding-top: 20px;
+}
+
+.player-item {
+    position: relative;
+    background-color: #f9f9f9;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+.player-item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+
+.player-box {
+    display: flex;
+    align-items: center;
+}
+
+.player-box img {
+    padding: 10px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-right: 10px;
+}
+.player-info{
+    padding: 15px 0 15px 0;
+}
+
+.player-info h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.player-info p {
+    margin: 0;
+}
+
+.player-info p:not(:last-child) {
+    margin-bottom: 3px;
+}
+
+/* Liste öğeleri arasına boşluk eklendi */
+
+
+/*
+.player-details {
+    display: none; /* Başlangıçta detaylar gizli olsun 
+    position:absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+  
+    
+}
+
+.player-item:hover .player-details {
+    display: block; /* Üzerine gelindiğinde detayları göster 
+    opacity: 1;
+    
+    transition: opacity 0.3s;
+}
+
+*/
+.read-more-container {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+
