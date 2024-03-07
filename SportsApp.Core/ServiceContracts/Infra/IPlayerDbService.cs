@@ -8,6 +8,9 @@ namespace SportsApp.Core.ServiceContracts.Infra
     {
         //public void AddAllEntites(ref Players model);
         //public void AddPlayer(ref Players model);
+
         public Task<Players?> FetchPlayer(string id, string season);
+
+        public void Add<T>(ref Players? player, int statisticPage) where T: class;
     }
 }

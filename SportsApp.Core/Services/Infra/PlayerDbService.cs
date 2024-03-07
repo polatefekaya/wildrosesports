@@ -1,10 +1,10 @@
 ﻿using SportsApp.Core.ServiceContracts.Infra;
 using SportsApp.Core.ServiceContracts.Infra.Player;
+using SportsApp.Infrastructure.Data.Player;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
-using static SportsApp.Core.Domain.Entities.Players;
 
 namespace SportsApp.Core.Services.Infra
 {
@@ -120,7 +120,23 @@ namespace SportsApp.Core.Services.Infra
         {
             //Statistic[] entities = model.response[0].statistics;
             _statistic.Add(_statistic.CreateAddRequests(ref model));
+
+            Add<TeamEntity>(ref model, 1);
         }
 
+        private static Dictionary<Type, Action<Players?, int>> types = new Dictionary<Type, Action<Players?, int>> {
+            {typeof(TeamEntity), (x,t) => {AddTeam(ref x,t); } },
+            {typeof(PlayerEntity), new Action<Players?, int>(x,t) }
+        };
+
+        public void Add<T>(ref Players? player, int statisticPage) where T : class {
+            if (typeof(T) == typeof(TeamEntity)) {
+
+            }
+            switch (T) {
+                case (typeof(T) == typeof(TeamEntity)):
+                break;
+            }
+        }
     }
 }
