@@ -32,6 +32,7 @@ namespace SportsApp.Core.Services.Infra
         private readonly ITackleEntityService _tackle;
         private readonly ITeamEntityService _team;
 
+        private Dictionary<Type, Action<Players?, int>> _typeMethods = new Dictionary<Type, Action<Players?, int>>();
         public PlayerDbService(IFootballService footballService, IStatisticEntityService statistic, IDribbleEntityService dribble, ICardEntityService card, IDuelEntityService duel, IFoulEntityService foul, IPlayerEntityService player, IGoalEntityService goal, IGameEntityService game, IEntityService entityService, ILeagueEntityService league, IPassEntityService pass, IPenaltyEntityService penalty, IShotEntityService shot, ISubstituteEntityService substitute, ITackleEntityService tackle, ITeamEntityService team)
         {
             _footballService = footballService;
@@ -50,6 +51,12 @@ namespace SportsApp.Core.Services.Infra
             _duel = duel;
             _card = card;
             _dribble = dribble;
+
+            InitializeTypeMethods();
+        }
+
+        private void InitializeTypeMethods() {
+            _typeMethods.Add(typeof(TeamEntity), new Action<Players?, int>(AddTeam));
         }
 
         public async Task<Players?> FetchPlayer(string id, string season)
@@ -90,22 +97,7 @@ namespace SportsApp.Core.Services.Infra
 
         }
 
-        /*
-        private void Add<T>(ref Players? model, int statisticPage) {
-            PropertyInfo?[] properties = model?.response?[0].statistics?[statisticPage].GetType().GetProperties();
-
-            foreach (PropertyInfo? property in properties) {
-                if (property.PropertyType == typeof(T)) {
-                    T? entity = (T?)property.GetValue(model, null);
-                    serviceTypes[typeof(T)].GetMethod("Add").Invoke(
-                        model,
-                        new object[] { serviceTypes[typeof(T)].GetMethod("CreateAddRequest").Invoke(model, new object[] {entity}) });
-                }
-            }
-        }
-        */
-
-        public void AddTeam(ref Players? model, int statisticPage) {
+        public void AddTeam(Players? model, int statisticPage) {
             Players.Team? entity = model?.response?[0].statistics?[statisticPage].team;
 
             try {
@@ -120,23 +112,14 @@ namespace SportsApp.Core.Services.Infra
         {
             //Statistic[] entities = model.response[0].statistics;
             _statistic.Add(_statistic.CreateAddRequests(ref model));
-
-            Add<TeamEntity>(ref model, 1);
         }
 
-        private static Dictionary<Type, Action<Players?, int>> types = new Dictionary<Type, Action<Players?, int>> {
-            {typeof(TeamEntity), (x,t) => {AddTeam(ref x,t); } },
-            {typeof(PlayerEntity), new Action<Players?, int>(x,t) }
-        };
-
         public void Add<T>(ref Players? player, int statisticPage) where T : class {
-            if (typeof(T) == typeof(TeamEntity)) {
+            if (!_typeMethods.ContainsKey(typeof(T))) {
+                throw new ArgumentException($"There is no initialized type like this in {nameof(PlayerDbService)}.{nameof(_typeMethods)}, please initialize it with it's method");
+            }
 
-            }
-            switch (T) {
-                case (typeof(T) == typeof(TeamEntity)):
-                break;
-            }
+            _typeMethods[typeof(T)].Invoke(player, statisticPage);
         }
     }
 }
