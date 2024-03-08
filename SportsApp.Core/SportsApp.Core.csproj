@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Domain\RepositoryContracts\" />
     <Folder Include="Exceptions\" />
     <Folder Include="ServiceContracts\Infra\Wrappers\" />
     <Folder Include="ServiceContracts\Models\" />
