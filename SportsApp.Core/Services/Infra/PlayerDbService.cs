@@ -1,4 +1,5 @@
-﻿using SportsApp.Core.ServiceContracts.Infra;
+﻿using SportsApp.Core.HelperContracts.Infra;
+using SportsApp.Core.ServiceContracts.Infra;
 using SportsApp.Core.ServiceContracts.Infra.Player;
 using SportsApp.Infrastructure.Data.Player;
 using System;
@@ -32,8 +33,10 @@ namespace SportsApp.Core.Services.Infra
         private readonly ITackleEntityService _tackle;
         private readonly ITeamEntityService _team;
 
+        private readonly IPlayerDbServiceHelper _playerDbHelper;
+
         private Dictionary<Type, Action<Players?, int>> _typeMethods = new Dictionary<Type, Action<Players?, int>>();
-        public PlayerDbService(IFootballService footballService, IStatisticEntityService statistic, IDribbleEntityService dribble, ICardEntityService card, IDuelEntityService duel, IFoulEntityService foul, IPlayerEntityService player, IGoalEntityService goal, IGameEntityService game, IEntityService entityService, ILeagueEntityService league, IPassEntityService pass, IPenaltyEntityService penalty, IShotEntityService shot, ISubstituteEntityService substitute, ITackleEntityService tackle, ITeamEntityService team)
+        public PlayerDbService(IFootballService footballService, IPlayerDbServiceHelper dbServiceHelper, IStatisticEntityService statistic, IDribbleEntityService dribble, ICardEntityService card, IDuelEntityService duel, IFoulEntityService foul, IPlayerEntityService player, IGoalEntityService goal, IGameEntityService game, IEntityService entityService, ILeagueEntityService league, IPassEntityService pass, IPenaltyEntityService penalty, IShotEntityService shot, ISubstituteEntityService substitute, ITackleEntityService tackle, ITeamEntityService team)
         {
             _footballService = footballService;
             _statistic = statistic;
@@ -51,6 +54,8 @@ namespace SportsApp.Core.Services.Infra
             _duel = duel;
             _card = card;
             _dribble = dribble;
+
+            _playerDbHelper = dbServiceHelper;
 
             InitializeTypeMethods();
         }
@@ -71,6 +76,7 @@ namespace SportsApp.Core.Services.Infra
         {
             //AddPlayer(ref playersModel);
             AddStatistics(ref model);
+            _playerDbHelper.Add<TeamEntity>(ref model, 0);
             //Add<Players.Player>(ref model, 1);
         }
 
