@@ -1,10 +1,12 @@
-﻿using System;
+﻿using SportsApp.Core.Domain.RepositoryContracts;
+using SportsApp.Infrastructure.Data.Player;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SportsApp.Infrastructure.Repositories {
-    internal class PlayerRepository {
+namespace SportsApp.Core.Domain.Repositories {
+    public class PlayerRepository : IPlayerRepository {
+        public Task<PlayerEntity> Add(PlayerEntity entity) {
+            throw new NotImplementedException();
+        }
     }
 }

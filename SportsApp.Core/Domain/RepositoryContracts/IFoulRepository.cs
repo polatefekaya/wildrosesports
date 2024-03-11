@@ -1,10 +1,9 @@
-﻿using System;
+﻿using SportsApp.Infrastructure.Data.Player;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SportsApp.Core.Domain.RepositoryContracts {
-    internal interface IFoulRepository {
+    public interface IFoulRepository {
+        Task<FoulEntity> Add(FoulEntity entity);
     }
 }

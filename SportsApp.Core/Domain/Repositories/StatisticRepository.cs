@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SportsApp.Infrastructure.Repositories {
-    internal class StatisticRepository {
+namespace SportsApp.Core.Domain.Repositories {
+    public class StatisticRepository {
     }
 }

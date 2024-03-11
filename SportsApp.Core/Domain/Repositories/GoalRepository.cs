@@ -1,10 +1,12 @@
-﻿using System;
+﻿using SportsApp.Core.Domain.RepositoryContracts;
+using SportsApp.Infrastructure.Data.Player;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SportsApp.Infrastructure.Repositories {
-    internal class GoalRepository {
+namespace SportsApp.Core.Domain.Repositories {
+    public class GoalRepository : IGoalRepository {
+        public Task<GoalEntity> Add(GoalEntity entity) {
+            throw new NotImplementedException();
+        }
     }
 }

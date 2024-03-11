@@ -1,10 +1,12 @@
-﻿using System;
+﻿using SportsApp.Core.Domain.RepositoryContracts;
+using SportsApp.Infrastructure.Data.Player;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SportsApp.Infrastructure.Repositories {
-    internal class PassRepository {
+namespace SportsApp.Core.Domain.Repositories {
+    public class PassRepository : IPassRepository {
+        public Task<PassEntity> Add(PassEntity entity) {
+            throw new NotImplementedException();
+        }
     }
 }

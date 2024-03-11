@@ -4,6 +4,7 @@ using SportsApp.Core.Domain.Entities;
 using SportsApp.Core.ServiceContracts.Infra;
 
 namespace Controllers {
+    [Route("~/football")]
     public class FootballController : Controller {
         
         private readonly IFootballService _footballService;
@@ -16,13 +17,13 @@ namespace Controllers {
             _playerDbService = playerDbService;
         }
 
-        [Route("~/football")]
+        [Route("/")]
         public async Task<IActionResult> Index(string leagueId = "203", string season = "2023") {
             TeamStandings? standingsModel = await _footballService.GetStandings(leagueId: leagueId, season: season);
             return View(standingsModel);
         }
 
-        [Route("~/football/players/{id}")]
+        [Route("/players/{id}")]
         public async Task<IActionResult> Team(string id = "0") {
             
             Players? playersModel = await _footballService.GetPlayersByTeam(id: id, season: "2023");
@@ -35,7 +36,7 @@ namespace Controllers {
             return View();
         }
 
-        [Route("~/football/player/{id}")]
+        [Route("/player/{id}")]
         public async Task<IActionResult> Player(string id = "0", bool topNews = false) {
             Players? playerModel = await _playerDbService.FetchPlayer(id, "2023");
             //Players? playerModel = await _footballService.GetPlayer(id: id, season: "2023");
