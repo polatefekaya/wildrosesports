@@ -1,6 +1,6 @@
 ﻿using SportsApp.Core.HelperContracts.Infra;
 using SportsApp.Core.Services.Infra;
-using SportsApp.Infrastructure.Data.Player;
+using SportsApp.Core.Domain.Entities.Player;
 using System;
 using System.Collections.Generic;
 

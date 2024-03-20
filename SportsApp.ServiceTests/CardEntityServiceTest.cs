@@ -3,11 +3,12 @@ using SportsApp.Core.DTO.Player.Card;
 using SportsApp.Core.ServiceContracts.Infra.Player;
 using SportsApp.Core.Services.Infra;
 using SportsApp.Core.Services.Infra.Player;
-using SportsApp.Infrastructure.Data.Player;
+using SportsApp.Infrastructure.DbContext;
 using System;
 using System.Collections.Generic;
 
-namespace SportsApp.ServiceTests {
+namespace SportsApp.ServiceTests
+{
     public class CardEntityServiceTest {
         private readonly ICardEntityService _cardEntityService;
         public CardEntityServiceTest() {

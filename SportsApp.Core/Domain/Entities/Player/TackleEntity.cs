@@ -1,4 +1,5 @@
-﻿namespace SportsApp.Infrastructure.Data.Player {
+﻿using System.ComponentModel.DataAnnotations;
+namespace SportsApp.Core.Domain.Entities.Player {
     public class TackleEntity {
         [Key]
         public Guid? Id { get; set; }

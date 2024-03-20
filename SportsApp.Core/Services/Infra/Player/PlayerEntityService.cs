@@ -1,10 +1,9 @@
 ﻿using SportsApp.Core.DTO.Player;
 using SportsApp.Core.ServiceContracts.Infra;
 using SportsApp.Core.ServiceContracts.Infra.Player;
-using SportsApp.Infrastructure.Data.Player;
+using SportsApp.Core.Domain.Entities.Player;
 using System;
 using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
 
 namespace SportsApp.Core.Services.Infra.Player
 {

@@ -1,11 +1,11 @@
 ﻿using SportsApp.Core.Domain.RepositoryContracts;
-using SportsApp.Infrastructure.Data.Player;
+using SportsApp.Core.Domain.Entities.Player;
 using System;
 using System.Collections.Generic;
 
 namespace SportsApp.Core.Domain.Repositories {
-    public class PenaltyRepository : IPenaltyRepository {
-        public Task<PenaltyEntity> Add(PenaltyEntity entity) {
+    public class PassRepository : IPassRepository {
+        public Task<PassEntity> Add(PassEntity entity) {
             throw new NotImplementedException();
         }
     }

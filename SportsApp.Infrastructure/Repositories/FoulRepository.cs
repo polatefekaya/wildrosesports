@@ -1,11 +1,11 @@
 ﻿using SportsApp.Core.Domain.RepositoryContracts;
-using SportsApp.Infrastructure.Data.Player;
+using SportsApp.Core.Domain.Entities.Player;
 using System;
 using System.Collections.Generic;
 
 namespace SportsApp.Core.Domain.Repositories {
-    public class DuelRepository : IDuelRepository {
-        public Task<DuelEntity> Add(DuelEntity entity) {
+    public class FoulRepository : IFoulRepository {
+        public Task<FoulEntity> Add(FoulEntity entity) {
             throw new NotImplementedException();
         }
     }

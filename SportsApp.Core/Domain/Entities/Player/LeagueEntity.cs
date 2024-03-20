@@ -1,4 +1,5 @@
-﻿namespace SportsApp.Infrastructure.Data.Player {
+﻿using System.ComponentModel.DataAnnotations;
+namespace SportsApp.Core.Domain.Entities.Player {
     public class LeagueEntity {
         [Key]
         public string? Id { get; set; }

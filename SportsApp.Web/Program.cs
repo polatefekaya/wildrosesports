@@ -3,11 +3,11 @@ using SportsApp.Core.HelperContracts;
 using SportsApp.Core.Helpers;
 using SportsApp.Core.Services;
 using Microsoft.EntityFrameworkCore;
-using SportsApp.Infrastructure.Data.Player;
 using SportsApp.Core.ServiceContracts.Infra.Player;
 using SportsApp.Core.Services.Infra.Player;
 using SportsApp.Core.ServiceContracts.Infra;
 using SportsApp.Core.Services.Infra;
+using SportsApp.Infrastructure.DbContext;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();

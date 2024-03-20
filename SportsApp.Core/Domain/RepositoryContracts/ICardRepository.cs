@@ -1,4 +1,4 @@
-﻿using SportsApp.Infrastructure.Data.Player;
+﻿using SportsApp.Core.Domain.Entities.Player;
 using System;
 using System.Collections.Generic;
 

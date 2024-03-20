@@ -1,4 +1,6 @@
-﻿namespace SportsApp.Infrastructure.Data.Player {
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SportsApp.Core.Domain.Entities.Player {
     public class DuelEntity {
         [Key]
         public Guid? Id { get; set; }

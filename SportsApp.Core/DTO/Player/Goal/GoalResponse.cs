@@ -1,5 +1,5 @@
 ﻿using SportsApp.Core.DTO.Player.Pass;
-using SportsApp.Infrastructure.Data.Player;
+using SportsApp.Core.Domain.Entities.Player;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
